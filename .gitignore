@@ -1,0 +1,14 @@
+# Local environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/secrets.toml
+.DS_Store
+Thumbs.db
+
+# User/raw data should not be accidentally committed. Add curated sample data explicitly if desired.
+data/raw/*
+!data/raw/.gitkeep
+
+# Generated processed manifests may be committed as evidence after the final run.

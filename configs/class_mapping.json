@@ -1,0 +1,18 @@
+{
+  "target_classes": ["dry", "wet", "recyclable", "e-waste"],
+  "source_to_target": {
+    "cardboard": "dry",
+    "paper": "dry",
+    "clothes": "dry",
+    "shoes": "dry",
+    "trash": "dry",
+    "biological": "wet",
+    "food": "wet",
+    "glass": "recyclable",
+    "metal": "recyclable",
+    "plastic": "recyclable",
+    "battery": "e-waste",
+    "e_waste": "e-waste",
+    "ewaste": "e-waste"
+  }
+}
