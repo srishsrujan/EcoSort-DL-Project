@@ -1,0 +1,16 @@
+{
+  "selected_artifact": "transfer",
+  "model_kind": "transfer",
+  "augmentation": "standard",
+  "selection_metric": "validation_macro_f1",
+  "selection_value": 0.9263780072997211,
+  "checkpoint": "artifacts/checkpoints/final_model.pth",
+  "classes": [
+    "dry",
+    "wet",
+    "recyclable",
+    "e-waste"
+  ],
+  "image_size": 224,
+  "seed": 42
+}
