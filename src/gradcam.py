@@ -67,6 +67,7 @@ def explain_image(image: Image.Image, model, kind: str, image_size: int, device:
     original = image.convert("RGB")
     transform = build_transform(image_size, train=False, augmentation="none")
     tensor = transform(original).unsqueeze(0).to(device)
+    tensor.requires_grad_(True)
     cam = gradcam(model, tensor, target_index, kind, device)
     return overlay_heatmap(original, cam)
 

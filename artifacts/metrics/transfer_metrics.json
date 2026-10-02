@@ -73,7 +73,7 @@
     ]
   ],
   "num_test_images": 1839,
-  "augmentation_used_for_training": "standard",
+  "augmentation_used_for_training": "none",
   "checkpoint_payload": {
     "model_kind": "transfer",
     "class_names": [
