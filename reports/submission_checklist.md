@@ -29,4 +29,4 @@
 - [ ] Streamlit app tested locally.
 - [ ] Git history contains meaningful commits.
 - [ ] AI usage statement completed/reviewed.
-- [ ] 5–8 minute demo video recorded.
+- [ ] Demo video intentionally excluded from this submission package checklist.

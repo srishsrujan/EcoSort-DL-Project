@@ -77,6 +77,15 @@ reports/      Experiment and dataset notes
 tests/        Automated tests
 ```
 
+## Final submission checklist (excluding demo video)
+
+- [ ] Working repository with meaningful commit history.
+- [ ] README with exact setup and run commands.
+- [ ] Architecture diagram and important design decisions.
+- [ ] Automated tests plus a written failure log.
+- [ ] Concise final report summarizing model decisions and outcomes.
+- [ ] AI usage statement documented in [AI_USAGE.md](./AI_USAGE.md).
+
 ## License
 
 The application code is released under the MIT License. Dataset licenses and attribution requirements are separate; check the terms of the dataset you use.
