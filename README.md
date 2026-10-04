@@ -81,6 +81,10 @@ reports/      Experiment and dataset notes
 tests/        Automated tests
 ```
 
+## AI usage
+
+See [AI_USAGE.md](./AI_USAGE.md) for the AI usage statement and remaining human verification steps.
+
 ## License
 
 The application code is released under the MIT License. Dataset licenses and attribution requirements are separate; check the terms of the dataset you use.
