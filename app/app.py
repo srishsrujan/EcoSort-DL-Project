@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pandas as pd
 import streamlit as st
 from PIL import Image
 
@@ -26,6 +27,74 @@ def load_meta():
         return None
     with FINAL_META.open("r", encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def render_model_evidence(payload: dict) -> None:
+    metrics = [
+        ("Test accuracy", "test_accuracy"),
+        ("Macro precision", "macro_precision"),
+        ("Macro recall", "macro_recall"),
+        ("Macro F1", "macro_f1"),
+        ("Weighted F1", "weighted_f1"),
+    ]
+    available_metrics = [(label, payload[key]) for label, key in metrics if key in payload]
+    if available_metrics:
+        columns = st.columns(len(available_metrics))
+        for column, (label, value) in zip(columns, available_metrics):
+            column.metric(label, f"{float(value):.1%}")
+
+    details = []
+    if payload.get("num_test_images") is not None:
+        details.append(f"{payload['num_test_images']} test images")
+    if payload.get("augmentation_used_for_training"):
+        details.append(f"{payload['augmentation_used_for_training']} training augmentation")
+    if details:
+        st.caption(" · ".join(details))
+
+    report = payload.get("classification_report", {})
+    class_rows = [
+        {
+            "Class": class_name.replace("-", " ").title(),
+            "Precision": f"{scores['precision']:.1%}",
+            "Recall": f"{scores['recall']:.1%}",
+            "F1 score": f"{scores['f1-score']:.1%}",
+            "Test images": int(scores["support"]),
+        }
+        for class_name, scores in report.items()
+        if class_name not in {"accuracy", "macro avg", "weighted avg"}
+        and isinstance(scores, dict)
+        and all(key in scores for key in ("precision", "recall", "f1-score", "support"))
+    ]
+    if class_rows:
+        with st.expander("Per-class performance"):
+            st.dataframe(pd.DataFrame(class_rows), hide_index=True, use_container_width=True)
+
+
+def render_ablation_evidence(payload: dict) -> None:
+    st.caption("Validation macro-F1 by training setup")
+    columns = st.columns(max(len(payload), 1))
+    for column, (variant, score) in zip(columns, payload.items()):
+        label = variant.replace("_", " ").title()
+        column.metric(label, f"{float(score):.1%}")
+
+
+def render_benchmark_evidence(payload: dict) -> None:
+    latency = payload.get("milliseconds_per_image")
+    throughput = payload.get("images_per_second")
+    device = payload.get("device")
+    metrics = []
+    if latency is not None:
+        metrics.append(("Per-image inference", f"{float(latency):.1f} ms"))
+    if throughput is not None:
+        metrics.append(("Throughput", f"{float(throughput):.1f} images/s"))
+    if device:
+        metrics.append(("Device", str(device).upper()))
+    if metrics:
+        columns = st.columns(len(metrics))
+        for column, (label, value) in zip(columns, metrics):
+            column.metric(label, value)
+    if payload.get("note"):
+        st.caption(payload["note"])
 
 
 @st.cache_resource(show_spinner=False)
@@ -117,7 +186,12 @@ with tab_evidence:
     else:
         for name, payload in available:
             with st.expander(name, expanded=(name in {"Baseline CNN", "Transfer model"})):
-                st.json(payload)
+                if name in {"Baseline CNN", "Transfer model"}:
+                    render_model_evidence(payload)
+                elif name == "Augmentation":
+                    render_ablation_evidence(payload)
+                elif name == "Benchmark":
+                    render_benchmark_evidence(payload)
 
     for image_name in ["baseline_confusion_matrix.png", "transfer_confusion_matrix.png", "transfer_strong_confusion_matrix.png"]:
         image_path = ROOT / "artifacts" / "figures" / image_name
