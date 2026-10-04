@@ -8,7 +8,7 @@ from pathlib import Path
 import pandas as pd
 
 from src.benchmark import benchmark
-from src.config import CHECKPOINT_DIR, METRIC_DIR, PROCESSED_DIR, REPORT_DIR, load_train_config, ensure_dirs
+from src.config import CHECKPOINT_DIR, METRIC_DIR, PROCESSED_DIR, REPORT_DIR, ROOT_DIR, load_train_config, ensure_dirs
 from src.data.prepare_dataset import load_mapping, discover_images, split_manifest
 from src.evaluate import evaluate_model
 from src.reporting import generate_failure_log, generate_reports
@@ -43,13 +43,6 @@ def prepare() -> dict:
     }
     atomic_write_json(PROCESSED_DIR / "dataset_summary.json", summary)
     return summary
-
-
-def choose_variant(summary: dict[str, dict]) -> tuple[str, str]:
-    # Validation metrics are used for the model/augmentation selection decision.
-    best_name = max(summary, key=lambda name: summary[name]["best_val_macro_f1"])
-    record = summary[best_name]
-    return record["model_kind"], record["augmentation"]
 
 
 def main() -> None:
@@ -127,7 +120,7 @@ def main() -> None:
         "augmentation": selected_augmentation,
         "selection_metric": "validation_macro_f1",
         "selection_value": float(selected_record["best_val_macro_f1"]),
-        "checkpoint": str(final_checkpoint),
+        "checkpoint": str(final_checkpoint.relative_to(ROOT_DIR)),
         "classes": ["dry", "wet", "recyclable", "e-waste"],
         "image_size": config.image_size,
         "seed": config.seed,

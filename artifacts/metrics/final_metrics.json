@@ -1,0 +1,90 @@
+{
+  "model_kind": "transfer",
+  "artifact_name": "transfer",
+  "checkpoint": "C:\\Users\\SRISH\\Downloads\\ecosort_ai_complete_submission\\ecosort_ai_submission\\artifacts\\checkpoints\\transfer_best.pth",
+  "test_accuracy": 0.9396411092985318,
+  "macro_precision": 0.9201627890631127,
+  "macro_recall": 0.9452019645098446,
+  "macro_f1": 0.9321734190243056,
+  "weighted_f1": 0.9397554833566182,
+  "classification_report": {
+    "dry": {
+      "precision": 0.9585062240663901,
+      "recall": 0.9418960244648318,
+      "f1-score": 0.9501285347043702,
+      "support": 981.0
+    },
+    "wet": {
+      "precision": 0.908256880733945,
+      "recall": 0.9428571428571428,
+      "f1-score": 0.9252336448598131,
+      "support": 105.0
+    },
+    "recyclable": {
+      "precision": 0.926791277258567,
+      "recall": 0.9311424100156495,
+      "f1-score": 0.9289617486338798,
+      "support": 639.0
+    },
+    "e-waste": {
+      "precision": 0.8870967741935484,
+      "recall": 0.9649122807017544,
+      "f1-score": 0.9243697478991597,
+      "support": 114.0
+    },
+    "accuracy": 0.9396411092985318,
+    "macro avg": {
+      "precision": 0.9201627890631127,
+      "recall": 0.9452019645098446,
+      "f1-score": 0.9321734190243056,
+      "support": 1839.0
+    },
+    "weighted avg": {
+      "precision": 0.9401904495445795,
+      "recall": 0.9396411092985318,
+      "f1-score": 0.9397554833566182,
+      "support": 1839.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      924,
+      5,
+      43,
+      9
+    ],
+    [
+      4,
+      99,
+      2,
+      0
+    ],
+    [
+      34,
+      5,
+      595,
+      5
+    ],
+    [
+      2,
+      0,
+      2,
+      110
+    ]
+  ],
+  "num_test_images": 1839,
+  "augmentation_used_for_training": "standard",
+  "checkpoint_payload": {
+    "model_kind": "transfer",
+    "class_names": [
+      "dry",
+      "wet",
+      "recyclable",
+      "e-waste"
+    ],
+    "image_size": 224,
+    "augmentation": "standard",
+    "best_val_macro_f1": 0.9263780072997211,
+    "epoch": 8
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "model_kind": "transfer",
+  "device": "cpu",
+  "repeats": 30,
+  "total_seconds": 0.48182189999897673,
+  "milliseconds_per_image": 16.06072999996589,
+  "images_per_second": 62.26367045595834,
+  "note": "Single-image forward-pass benchmark; includes model inference only, not camera capture/network latency."
+}

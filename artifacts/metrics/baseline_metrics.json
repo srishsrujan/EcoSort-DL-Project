@@ -1,0 +1,90 @@
+{
+  "model_kind": "baseline",
+  "artifact_name": "baseline",
+  "checkpoint": "C:\\Users\\SRISH\\Downloads\\ecosort_ai_complete_submission\\ecosort_ai_submission\\artifacts\\checkpoints\\baseline_best.pth",
+  "test_accuracy": 0.609026644915715,
+  "macro_precision": 0.6059019925397175,
+  "macro_recall": 0.6350322574969102,
+  "macro_f1": 0.6090639872076391,
+  "weighted_f1": 0.6088517252950927,
+  "classification_report": {
+    "dry": {
+      "precision": 0.7455621301775148,
+      "recall": 0.5137614678899083,
+      "f1-score": 0.6083283041641521,
+      "support": 981.0
+    },
+    "wet": {
+      "precision": 0.5867768595041323,
+      "recall": 0.6761904761904762,
+      "f1-score": 0.6283185840707964,
+      "support": 105.0
+    },
+    "recyclable": {
+      "precision": 0.5162689804772235,
+      "recall": 0.7449139280125195,
+      "f1-score": 0.6098654708520179,
+      "support": 639.0
+    },
+    "e-waste": {
+      "precision": 0.575,
+      "recall": 0.6052631578947368,
+      "f1-score": 0.5897435897435898,
+      "support": 114.0
+    },
+    "accuracy": 0.609026644915715,
+    "macro avg": {
+      "precision": 0.6059019925397175,
+      "recall": 0.6350322574969102,
+      "f1-score": 0.6090639872076391,
+      "support": 1839.0
+    },
+    "weighted avg": {
+      "precision": 0.6462500807379128,
+      "recall": 0.609026644915715,
+      "f1-score": 0.6088517252950927,
+      "support": 1839.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      504,
+      30,
+      401,
+      46
+    ],
+    [
+      18,
+      71,
+      15,
+      1
+    ],
+    [
+      140,
+      19,
+      476,
+      4
+    ],
+    [
+      14,
+      1,
+      30,
+      69
+    ]
+  ],
+  "num_test_images": 1839,
+  "augmentation_used_for_training": "standard",
+  "checkpoint_payload": {
+    "model_kind": "baseline",
+    "class_names": [
+      "dry",
+      "wet",
+      "recyclable",
+      "e-waste"
+    ],
+    "image_size": 224,
+    "augmentation": "standard",
+    "best_val_macro_f1": 0.6113492462311558,
+    "epoch": 3
+  }
+}

@@ -10,5 +10,25 @@ Thumbs.db
 # User/raw data should not be accidentally committed. Add curated sample data explicitly if desired.
 data/raw/*
 !data/raw/.gitkeep
+data/_kaggle_garbage_download/
 
-# Generated processed manifests may be committed as evidence after the final run.
+# Manifests contain machine-specific image paths.
+data/processed/manifest.csv
+
+# Keep only the selected model required to run the deployed app.
+artifacts/checkpoints/*.pth
+!artifacts/checkpoints/final_model.pth
+
+# Exclude generated files that contain local paths or are reproducible.
+artifacts/figures/*
+artifacts/metrics/*
+!artifacts/metrics/baseline_metrics.json
+!artifacts/metrics/augmentation_ablation.json
+!artifacts/metrics/benchmark.json
+!artifacts/metrics/final_metrics.json
+!artifacts/metrics/final_model_meta.json
+!artifacts/metrics/transfer_metrics.json
+!artifacts/figures/baseline_confusion_matrix.png
+!artifacts/figures/transfer_confusion_matrix.png
+!artifacts/figures/transfer_strong_confusion_matrix.png
+pytest-output.txt
