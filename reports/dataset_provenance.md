@@ -25,6 +25,7 @@
 - Collection status and count: Not recorded in the repository.
 - No separate phone-image evaluation is represented in the reported test metrics.
 - Collection conditions and storage location: Not recorded.
+- Current repo status: This submission package does not include a recorded phone-photo test set, so the checklist item remains unfulfilled until such data is captured and added.
 
 ## Notes
 
