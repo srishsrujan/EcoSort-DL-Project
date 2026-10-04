@@ -3,6 +3,8 @@
 EcoSort AI is an image-classification project that identifies waste as **dry**, **wet**, **recyclable**, or **e-waste**. It combines a custom CNN and MobileNetV3-Small with a Streamlit app for image upload, camera input, confidence scores, alternative predictions, and Grad-CAM explanations.
 
 **[Try the live app](https://ecosort-dl.streamlit.app/)** · **[View the source on GitHub](https://github.com/srishsrujan/EcoSort-DL-Project)**
+Drive video link 1 for uploading image : https://drive.google.com/file/d/1tRqiZ2VnNEZYHbCIkgJ2-ykofyYjwf4J/view?usp=drive_link
+Drive video link 2 for taking image from phone : https://drive.google.com/file/d/1KF4bjI2J30ETLK2R3_WBzuzCzcBujfMR/view?usp=drive_link
 
 ## What you can explore
 
