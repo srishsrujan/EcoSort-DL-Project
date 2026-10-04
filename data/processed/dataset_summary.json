@@ -1,0 +1,45 @@
+{
+  "source_image_count": 12259,
+  "unique_image_count": 12259,
+  "exact_duplicates_removed": 0,
+  "classes": [
+    "dry",
+    "wet",
+    "recyclable",
+    "e-waste"
+  ],
+  "class_counts": {
+    "dry": 6541,
+    "e-waste": 756,
+    "recyclable": 4263,
+    "wet": 699
+  },
+  "split_counts": {
+    "train": 8581,
+    "test": 1839,
+    "val": 1839
+  },
+  "split_class_counts": {
+    "dry": {
+      "test": 981,
+      "train": 4579,
+      "val": 981
+    },
+    "e-waste": {
+      "test": 114,
+      "train": 529,
+      "val": 113
+    },
+    "recyclable": {
+      "test": 639,
+      "train": 2984,
+      "val": 640
+    },
+    "wet": {
+      "test": 105,
+      "train": 489,
+      "val": 105
+    }
+  },
+  "seed": 42
+}
